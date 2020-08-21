@@ -1,0 +1,63 @@
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {margin: 0;}
+  
+ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+p {margin: 0;}
+  
+a {text-decoration: none;}
+  
+audio, canvas, iframe, img, svg, video {vertical-align: middle;}
+  
+textarea {resize: none;}
+  
+input, select, button {outline: none;}
+  
+* {box-sizing: border-box;}
+*:before, *:after {box-sizing: border-box;}
+
+
+
+button {
+	border: 1px solid goldenrod;
+	border-radius: 5px;
+	background-color: rgb(34, 76, 139);
+	color: #fff;
+	cursor: pointer;
+	margin: 20px 5px 0 0;
+	padding: 5px;
+}
+
+button:hover,
+button:active {background-color: rgb(129, 197, 28);}
+
+button:active {transform: scale(1.1);}
+
+.wrapper {margin: 50px;}
+
+.users, .card {
+    max-width: 300px;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #435678;
+    color: #fff;
+}
+
+p {
+    padding-bottom: 5px;
+}
