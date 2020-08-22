@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let url = 'https://reqres.in/api/users',
         xhrBtn = document.querySelector('.xhr'),
         fetchBtn = document.querySelector('.fetch'),
-        jqBtn = document.querySelector('.jq'),
         axiosBtn = document.querySelector('.axios');
 
     function createCards(response) {
@@ -26,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
     xhrBtn.addEventListener('click', () => {
         const request = new XMLHttpRequest();
 
-        request.open('GET', 'https://reqres.in/api/users');
+        request.open('GET', url);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send();
         request.addEventListener('load', () => {
@@ -41,15 +40,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // fetch
     fetchBtn.addEventListener('click', () => {
-        fetch(url)
-        .then((res) => {
-            res.json().then((usersData) => {
-                createCards(usersData);
-            })
-        })
-        .catch(() => {
-            alert('Error!!!');
-        })
+        async function getUsers() {
+            try {
+                const response = fetch(url)
+                .then((res) => {
+                    res.json().then((usersData) => {
+                        createCards(usersData);
+                    })
+                })
+                return response;
+            } catch(error) {
+                alert('Error!!!');
+            }
+        }
+
+        getUsers();
+    
     }, {'once': true});
 
     // jquery
@@ -63,6 +69,23 @@ window.addEventListener('DOMContentLoaded', () => {
         })
     });
 
+    // axios
+    axiosBtn.addEventListener('click', function(){
+        async function getUsers() {
+            try {
+                const response = await axios.get(url)
+                .then(function(usersData){
+                    createCards(usersData.data);
+                })
+                return response;
+            } catch(error) {
+                alert('Error!!!');
+            }
+        }
+
+        getUsers();
+
+    }, {'once': true});
 
 
 
